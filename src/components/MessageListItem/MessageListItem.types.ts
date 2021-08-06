@@ -1,3 +1,5 @@
 import { Message } from "../../types/Message";
 
-export type MessageListItemProps = Pick<Message, "body">;
+export interface MessageListItemProps extends Pick<Message, "body"> {
+    isUser: boolean;
+}
