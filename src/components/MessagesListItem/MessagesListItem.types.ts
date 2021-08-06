@@ -1,3 +1,3 @@
 import { Message } from "../../types/Message";
 
-export type MessagesListItemProps = Pick<Message, "body" | "senderName">;
+export type MessagesListItemProps = Pick<Message, "body">;

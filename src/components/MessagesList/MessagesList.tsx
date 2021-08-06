@@ -27,8 +27,9 @@ export const MessagesList = () => {
 
     return (
         <div>
+            {/* TODO: group messages by senderName */}
             {data.messages.map(({ id, body, senderName }) => (
-                <MessagesListItem key={id} body={body} senderName={senderName} />
+                <MessagesListItem key={id} body={body} />
             ))}
         </div>
     );
