@@ -4,7 +4,7 @@ import { MessageListItemProps } from "./MessageListItem.types";
 type ListItemProps = Pick<MessageListItemProps, "isUser">;
 
 export const ListItem = styled.p`
-    width: max-content;
+    width: auto;
     margin: 0;
     padding: 8px;
     border-radius: 8px;
