@@ -1,10 +1,5 @@
-import "./App.css";
+import { Chat } from "./components/Chat";
 
 export const App = () => {
-    return (
-        <div className="App">
-            <div>messages</div>
-            <div>input</div>
-        </div>
-    );
+    return <Chat />;
 };
