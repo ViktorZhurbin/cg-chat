@@ -17,12 +17,7 @@ const SEND_MESSAGE = gql`
 
 export const ChatInput = () => {
     const [message, setMessage] = useState("");
-    const [sendMessage, { loading, error }] = useMutation<Message, NewMessagePayload>(
-        SEND_MESSAGE,
-        {
-            variables: { body: message, senderName: "Vi" },
-        }
-    );
+    const [sendMessage, { loading, error }] = useMutation<Message, NewMessagePayload>(SEND_MESSAGE);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.trim();
@@ -30,9 +25,11 @@ export const ChatInput = () => {
         setMessage(value);
     };
 
-    const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
-            sendMessage();
+            sendMessage({
+                variables: { body: message, senderName: "Viktor" },
+            });
         }
     };
 
