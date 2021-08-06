@@ -1,9 +1,9 @@
 import { ChatInput } from "../ChatInput";
-import { MessagesList } from "../MessagesList";
+import { MessageList } from "../MessageList";
 
 export const Chat = () => (
     <div>
-        <MessagesList />
+        <MessageList />
         <ChatInput />
     </div>
 );

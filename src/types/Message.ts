@@ -3,3 +3,5 @@ export interface Message {
     body: string;
     senderName: string;
 }
+
+export type CreateMessagePayload = Pick<Message, "body" | "senderName">;

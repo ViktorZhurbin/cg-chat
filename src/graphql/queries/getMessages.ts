@@ -1,4 +1,6 @@
-import { gql } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
+
+import { Message } from "../../types/Message";
 
 export const GET_MESSAGES = gql`
     query getMessages {
@@ -9,3 +11,5 @@ export const GET_MESSAGES = gql`
         }
     }
 `;
+
+export const useMessages = () => useQuery<{ messages: Message[] }>(GET_MESSAGES);

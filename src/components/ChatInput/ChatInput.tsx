@@ -1,18 +1,10 @@
-import { useMutation } from "@apollo/client";
 import { useState } from "react";
-import { SEND_MESSAGE } from "../../graphql/mutations";
-import { GET_MESSAGES } from "../../graphql/queries";
 
-import { Message } from "../../types/Message";
-
-import { NewMessagePayload } from "./ChatInput.types";
+import { useSendMessage } from "../../graphql/mutations";
 
 export const ChatInput = () => {
     const [message, setMessage] = useState("");
-    const [sendMessage, { loading, error }] = useMutation<Message, NewMessagePayload>(
-        SEND_MESSAGE,
-        { refetchQueries: [GET_MESSAGES] }
-    );
+    const [sendMessage, { loading, error }] = useSendMessage();
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.trim();
