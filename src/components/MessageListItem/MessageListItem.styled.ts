@@ -3,7 +3,7 @@ import { MessageListItemProps } from "./MessageListItem.types";
 
 type ListItemProps = Pick<MessageListItemProps, "isUser">;
 
-export const ListItem = styled.p`
+export const MessageListItemStyled = styled.p`
     width: auto;
     margin: 0;
     padding: 8px;
@@ -11,6 +11,8 @@ export const ListItem = styled.p`
     justify-self: end;
     color: #fff;
     background-color: #2a2a2a;
+    font-size: 1rem;
+    line-height: 1.25rem;
 
     ${({ isUser }: ListItemProps) =>
         isUser &&

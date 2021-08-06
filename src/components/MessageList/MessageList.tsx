@@ -1,7 +1,7 @@
 import { useMessages } from "../../graphql/queries";
 
 import { MessageListItem } from "../MessageListItem";
-import { List } from "./MessageList.styled";
+import { MessageListStyled } from "./MessageList.styled";
 import { MessageListProps } from "./MessageList.types";
 
 export const MessageList = ({ userName }: MessageListProps) => {
@@ -16,10 +16,10 @@ export const MessageList = ({ userName }: MessageListProps) => {
     }
 
     return (
-        <List>
+        <MessageListStyled>
             {data.messages.map(({ id, body, senderName }) => (
                 <MessageListItem key={id} body={body} isUser={senderName === userName} />
             ))}
-        </List>
+        </MessageListStyled>
     );
 };
