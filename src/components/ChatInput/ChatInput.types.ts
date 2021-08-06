@@ -1,5 +1,5 @@
-import { CreateMessagePayload } from "../../types/Message";
+import { SendMessagePayload } from "../../types/Message";
 
 export interface ChatInputProps {
-    onSubmit: (payload: CreateMessagePayload) => void;
+    onSubmit: (payload: SendMessagePayload) => void;
 }
