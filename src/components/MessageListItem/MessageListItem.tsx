@@ -1,6 +1,6 @@
-import { ListItem } from "./MessageListItem.styled";
+import { MessageListItemStyled } from "./MessageListItem.styled";
 import { MessageListItemProps } from "./MessageListItem.types";
 
 export const MessageListItem = ({ body, isUser }: MessageListItemProps) => {
-    return <ListItem isUser={isUser}>{body}</ListItem>;
+    return <MessageListItemStyled isUser={isUser}>{body}</MessageListItemStyled>;
 };
