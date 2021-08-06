@@ -21,15 +21,15 @@ export const MessagesList = () => {
         return <p>Loading...</p>;
     }
 
-    if (error) {
-        return <p>Error</p>;
+    if (!data || error) {
+        return <p>Could not get the messages</p>;
     }
 
-    return data?.messages?.length ? (
+    return (
         <div>
             {data.messages.map(({ id, body, senderName }) => (
                 <MessagesListItem key={id} body={body} senderName={senderName} />
             ))}
         </div>
-    ) : null;
+    );
 };
