@@ -1,3 +1,7 @@
+import { Message } from "../../types/Message";
+
+export type NewMessagePayload = Pick<Message, "body" | "senderName">;
+
 export interface ChatInputProps {
-    onSubmit: (body: string, senderName: string) => void;
+    onSubmit: (payload: NewMessagePayload) => void;
 }

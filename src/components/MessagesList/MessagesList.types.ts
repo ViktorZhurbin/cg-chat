@@ -1,13 +1,5 @@
-export interface Message {
-    id: number;
-    body: string;
-    senderName: string;
-}
+import { Message } from "../../types/Message";
 
 export interface MessageData {
     messages: Message[];
-}
-
-export interface MessagesListProps {
-    messages: MessageData["messages"];
 }

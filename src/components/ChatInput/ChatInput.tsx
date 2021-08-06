@@ -1,6 +1,9 @@
 import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { Message } from "../MessagesList";
+
+import { Message } from "../../types/Message";
+
+import { NewMessagePayload } from "./ChatInput.types";
 
 const SEND_MESSAGE = gql`
     mutation sendMessage($body: String, $senderName: String) {
@@ -12,13 +15,14 @@ const SEND_MESSAGE = gql`
     }
 `;
 
-type NewMessage = Pick<Message, "body" | "senderName">;
-
 export const ChatInput = () => {
     const [message, setMessage] = useState("");
-    const [sendMessage, { loading, error }] = useMutation<Message, NewMessage>(SEND_MESSAGE, {
-        variables: { body: message, senderName: "Vi" },
-    });
+    const [sendMessage, { loading, error }] = useMutation<Message, NewMessagePayload>(
+        SEND_MESSAGE,
+        {
+            variables: { body: message, senderName: "Vi" },
+        }
+    );
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.trim();
@@ -37,7 +41,7 @@ export const ChatInput = () => {
     }
 
     if (error) {
-        if (error) return <p>Submission error! {error.message}</p>;
+        return <p>Submission error! {error.message}</p>;
     }
 
     return <input placeholder="Message" onChange={handleChange} onKeyDown={handleKeyDown} />;
