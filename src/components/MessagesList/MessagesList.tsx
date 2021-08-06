@@ -1,21 +1,12 @@
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 
+import { GET_MESSAGES } from "../../graphql/queries";
 import { MessagesListItem } from "../MessagesListItem";
 
 import { MessageData } from "./MessagesList.types";
 
-const MESSAGES = gql`
-    query getMessages {
-        messages(limit: 50, order_by: { id: asc }) {
-            id
-            body
-            senderName
-        }
-    }
-`;
-
 export const MessagesList = () => {
-    const { loading, error, data } = useQuery<MessageData>(MESSAGES);
+    const { loading, error, data } = useQuery<MessageData>(GET_MESSAGES);
 
     if (loading) {
         return <p>Loading...</p>;

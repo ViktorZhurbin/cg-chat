@@ -1,19 +1,10 @@
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useState } from "react";
+import { SEND_MESSAGE } from "../../graphql/mutations";
 
 import { Message } from "../../types/Message";
 
 import { NewMessagePayload } from "./ChatInput.types";
-
-const SEND_MESSAGE = gql`
-    mutation sendMessage($body: String, $senderName: String) {
-        insert_messages_one(object: { body: $body, senderName: $senderName }) {
-            id
-            body
-            senderName
-        }
-    }
-`;
 
 export const ChatInput = () => {
     const [message, setMessage] = useState("");
