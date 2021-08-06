@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { useSendMessage } from "../../graphql/mutations";
+import { ChatInputStyled } from "./ChatInput.styled";
 import { ChatInputProps } from "./ChatInput.types";
 
 export const ChatInput = ({ userName }: ChatInputProps) => {
@@ -29,5 +30,7 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
         return <p>Submission error! {error.message}</p>;
     }
 
-    return <input placeholder="Message" onChange={handleChange} onKeyDown={handleKeyDown} />;
+    return (
+        <ChatInputStyled placeholder="Message" onChange={handleChange} onKeyDown={handleKeyDown} />
+    );
 };
