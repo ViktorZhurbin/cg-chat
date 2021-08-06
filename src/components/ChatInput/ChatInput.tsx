@@ -1,8 +1,9 @@
 import { useState } from "react";
 
 import { useSendMessage } from "../../graphql/mutations";
+import { ChatInputProps } from "./ChatInput.types";
 
-export const ChatInput = () => {
+export const ChatInput = ({ userName }: ChatInputProps) => {
     const [message, setMessage] = useState("");
     const [sendMessage, { loading, error }] = useSendMessage();
 
@@ -15,7 +16,7 @@ export const ChatInput = () => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             sendMessage({
-                variables: { body: message, senderName: "Viktor" },
+                variables: { body: message, senderName: userName },
             });
         }
     };
