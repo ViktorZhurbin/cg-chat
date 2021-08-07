@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Prepare
 
-Copy and rename `.env.example` to `.env.local`, and add env variables.
+Copy and rename `.env.example` to `.env.local`, and add values for the listed environment variables.
 
 ## Available Scripts
 
