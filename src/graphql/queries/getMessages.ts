@@ -12,4 +12,4 @@ export const GET_MESSAGES = gql`
     }
 `;
 
-export const useMessages = () => useQuery<{ messages: Message[] }>(GET_MESSAGES);
+export const useGetMessages = () => useQuery<{ messages: Message[] }>(GET_MESSAGES);

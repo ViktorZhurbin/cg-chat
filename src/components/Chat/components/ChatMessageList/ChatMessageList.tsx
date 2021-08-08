@@ -1,4 +1,4 @@
-import { useMessages } from "../../../../graphql/queries";
+import { useGetMessages } from "../../../../graphql/queries";
 import { Avatar } from "../../../Avatar";
 
 import { ChatMessageListItem } from "../ChatMessageListItem";
@@ -7,7 +7,7 @@ import { ChatMessageListStyled, LoadingStyled, Wrapper } from "./ChatMessageList
 import { ChatMessageListProps } from "./ChatMessageList.types";
 
 export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
-    const { loading, error, data } = useMessages();
+    const { loading, error, data } = useGetMessages();
 
     if (loading) {
         return <LoadingStyled>Loading...</LoadingStyled>;

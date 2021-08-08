@@ -1,13 +1,14 @@
 import { useRef, useState } from "react";
 
-import { useSendMessage } from "../../../../graphql/mutations";
+import { useCreateMessage } from "../../../../graphql/mutations";
+
 import { ChatInputStyled, Overlay, SendingMessage, Wrapper } from "./ChatInput.styled";
 import { ChatInputProps } from "./ChatInput.types";
 
 export const ChatInput = ({ userName }: ChatInputProps) => {
     const [message, setMessage] = useState("");
     const inputRef = useRef<HTMLInputElement>(null);
-    const [sendMessage, { loading, error }] = useSendMessage({
+    const [createMessage, { loading, error }] = useCreateMessage({
         onCompleted: () => {
             setMessage("");
             inputRef?.current?.focus();
@@ -23,7 +24,7 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
             inputRef?.current?.blur();
-            sendMessage({
+            createMessage({
                 variables: { body: message, senderName: userName },
             });
         }
