@@ -1,14 +1,17 @@
 import { Avatar } from "../Avatar";
 
-import { ChatHeaderStyled, NameStyled } from "./ChatHeader.styled";
+import { ChatHeaderStyled, CloseStyled, NameStyled, UserWrapper } from "./ChatHeader.styled";
 
 const name = "Kubota";
 
 export const ChatHeader = () => {
     return (
         <ChatHeaderStyled>
-            <Avatar name={name} />
-            <NameStyled>{name}</NameStyled>
+            <UserWrapper>
+                <Avatar name={name} />
+                <NameStyled>{name}</NameStyled>
+            </UserWrapper>
+            <CloseStyled />
         </ChatHeaderStyled>
     );
 };
