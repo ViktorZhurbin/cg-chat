@@ -4,9 +4,8 @@ export const ChatHeaderStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 60px;
     background-color: var(--color-bg-grey);
-    width: 100%;
+    box-shadow: inset 0px 0px 1px 0px;
 `;
 
 export const UserWrapper = styled.div`
@@ -22,13 +21,14 @@ export const NameStyled = styled.span`
 `;
 
 export const CloseIcon = styled.div`
-    --size: 28px;
+    --size: 24px;
 
     position: relative;
     width: var(--size);
     height: var(--size);
     cursor: pointer;
     opacity: 0.6;
+    transition: opacity 0.1s ease-in;
 
     :hover {
         opacity: 1;

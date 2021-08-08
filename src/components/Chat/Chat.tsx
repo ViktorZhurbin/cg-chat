@@ -1,9 +1,10 @@
+import { useState } from "react";
+
 import { ChatHeader } from "./components/ChatHeader";
 import { ChatInput } from "./components/ChatInput";
 import { MessageList } from "./components/MessageList";
 
 import { ChatIconStyled, ChatStyled, Wrapper } from "./Chat.styled";
-import { useState } from "react";
 
 const userName = "Viktor";
 

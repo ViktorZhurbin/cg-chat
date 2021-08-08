@@ -14,8 +14,8 @@ export const Wrapper = styled.div`
 `;
 
 export const ChatStyled = styled.div`
-    --padding: 24px;
     --margin: 32px;
+    --padding: 16px 24px;
 
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ export const ChatStyled = styled.div`
     }
 
     ${MessageListStyled} {
-        padding: 0 var(--padding);
+        padding: var(--padding);
     }
 
     ${ChatInputStyled} {
