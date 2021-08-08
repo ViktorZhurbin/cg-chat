@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { useSendMessage } from "../../../../graphql/mutations";
-import { ChatInputStyled } from "./ChatInput.styled";
+import { ChatInputStyled, Overlay, SendingMessage, Wrapper } from "./ChatInput.styled";
 import { ChatInputProps } from "./ChatInput.types";
 
 export const ChatInput = ({ userName }: ChatInputProps) => {
     const [message, setMessage] = useState("");
-    const [sendMessage, { loading, error }] = useSendMessage();
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [sendMessage, { loading, error }] = useSendMessage({
+        onCompleted: () => {
+            setMessage("");
+            inputRef?.current?.focus();
+        },
+    });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value.trim();
@@ -16,21 +22,32 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.key === "Enter") {
+            inputRef?.current?.blur();
             sendMessage({
                 variables: { body: message, senderName: userName },
             });
         }
     };
 
-    if (loading) {
-        return <p>Sending...</p>;
-    }
-
     if (error) {
         return <p>Submission error! {error.message}</p>;
     }
 
     return (
-        <ChatInputStyled placeholder="Message" onChange={handleChange} onKeyDown={handleKeyDown} />
+        <Wrapper>
+            <ChatInputStyled
+                ref={inputRef}
+                placeholder="Message"
+                value={message}
+                onChange={handleChange}
+                onKeyDown={handleKeyDown}
+            />
+            {loading && (
+                <>
+                    <Overlay />
+                    <SendingMessage>Sending...</SendingMessage>
+                </>
+            )}
+        </Wrapper>
     );
 };
