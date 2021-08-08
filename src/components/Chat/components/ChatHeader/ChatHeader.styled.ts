@@ -5,7 +5,7 @@ export const ChatHeaderStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     background-color: var(--color-bg-grey);
-    box-shadow: inset 0px 0px 1px 0px;
+    box-shadow: 0 0 4px #ccc8c8;
 `;
 
 export const UserWrapper = styled.div`
