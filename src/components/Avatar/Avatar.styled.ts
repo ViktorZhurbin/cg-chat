@@ -12,4 +12,5 @@ export const AvatarStyled = styled.div`
     background-color: var(--color-blue);
     border-radius: 50%;
     font-weight: 500;
+    cursor: default;
 `;
