@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useSendMessage } from "../../graphql/mutations";
+import { useSendMessage } from "../../../../graphql/mutations";
 import { ChatInputStyled } from "./ChatInput.styled";
 import { ChatInputProps } from "./ChatInput.types";
 

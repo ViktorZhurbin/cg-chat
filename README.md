@@ -1,8 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Demo: https://cg-chat-e18fe2.netlify.app
+
 ## Prepare
 
-Copy and rename `.env.example` to `.env.local`, and add env variables.
+Copy and rename `.env.example` to `.env.local`, and add values for the listed environment variables.
 
 ## Available Scripts
 
