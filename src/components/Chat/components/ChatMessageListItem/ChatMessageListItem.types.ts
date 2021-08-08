@@ -1,5 +1,3 @@
 import { Message } from "../../../../types/Message";
 
-export interface ChatMessageListItemProps extends Pick<Message, "body"> {
-    isUser: boolean;
-}
+export type ChatMessageListItemProps = Pick<Message, "body">;

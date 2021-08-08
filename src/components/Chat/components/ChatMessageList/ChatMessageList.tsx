@@ -1,8 +1,9 @@
 import { useMessages } from "../../../../graphql/queries";
+import { Avatar } from "../../../Avatar";
 
 import { ChatMessageListItem } from "../ChatMessageListItem";
 
-import { ChatMessageListStyled } from "./ChatMessageList.styled";
+import { ChatMessageListStyled, Wrapper } from "./ChatMessageList.styled";
 import { ChatMessageListProps } from "./ChatMessageList.types";
 
 export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
@@ -18,9 +19,17 @@ export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
 
     return (
         <ChatMessageListStyled>
-            {data.messages.map(({ id, body, senderName }) => (
-                <ChatMessageListItem key={id} body={body} isUser={senderName === userName} />
-            ))}
+            {data.messages.map(({ id, body, senderName }, index, messages) => {
+                const isLast = index === messages.length - 1;
+                const isLastInGroup = messages[index + 1]?.senderName !== senderName;
+
+                return (
+                    <Wrapper key={id} isUser={senderName === userName}>
+                        <ChatMessageListItem body={body} />
+                        {isLastInGroup && !isLast && <Avatar name={senderName} />}
+                    </Wrapper>
+                );
+            })}
         </ChatMessageListStyled>
     );
 };
