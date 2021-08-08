@@ -1,12 +1,15 @@
 import styled from "styled-components";
 
 export const AvatarStyled = styled.div`
-    border-radius: 50%;
-    background-color: var(--color-blue);
-    width: 30px;
-    height: 30px;
-    color: var(--color-white);
+    --size: 30px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    color: var(--color-white);
+    background-color: var(--color-blue);
+    border-radius: 50%;
+    font-weight: 500;
 `;
