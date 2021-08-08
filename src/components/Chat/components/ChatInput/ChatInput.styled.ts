@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
     position: relative;
@@ -9,6 +9,7 @@ export const ChatInputStyled = styled.input`
     line-height: 1.25rem;
     border: none;
     outline: none;
+    width: 100%;
 `;
 
 export const Overlay = styled.div`
@@ -22,13 +23,24 @@ export const Overlay = styled.div`
     opacity: 0.5;
 `;
 
-export const SendingMessage = styled.div`
+const infoMessageStyle = css`
     --height: 0.75rem;
 
     font-size: var(--height);
     position: absolute;
     top: calc(-1 * var(--height));
     right: 10px;
-    color: var(--color-grey);
     background-color: var(--color-white);
+`;
+
+export const SendingMessage = styled.div`
+    ${infoMessageStyle}
+
+    color: var(--color-grey);
+`;
+
+export const ErrorMessage = styled.div`
+    ${infoMessageStyle}
+
+    color: red;
 `;

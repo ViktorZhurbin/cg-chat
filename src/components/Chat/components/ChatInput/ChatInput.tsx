@@ -2,7 +2,13 @@ import { useRef, useState } from "react";
 
 import { useCreateMessage } from "../../../../graphql/mutations";
 
-import { ChatInputStyled, Overlay, SendingMessage, Wrapper } from "./ChatInput.styled";
+import {
+    ChatInputStyled,
+    ErrorMessage,
+    Overlay,
+    SendingMessage,
+    Wrapper,
+} from "./ChatInput.styled";
 import { ChatInputProps } from "./ChatInput.types";
 
 export const ChatInput = ({ userName }: ChatInputProps) => {
@@ -16,9 +22,7 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
     });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value.trim();
-
-        setMessage(value);
+        setMessage(event.target.value);
     };
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -29,10 +33,6 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
             });
         }
     };
-
-    if (error) {
-        return <p>Submission error! {error.message}</p>;
-    }
 
     return (
         <Wrapper>
@@ -49,6 +49,7 @@ export const ChatInput = ({ userName }: ChatInputProps) => {
                     <SendingMessage>Sending...</SendingMessage>
                 </>
             )}
+            {error && <ErrorMessage>Sending error</ErrorMessage>}
         </Wrapper>
     );
 };
