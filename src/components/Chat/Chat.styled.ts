@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ChatStyled = styled.div`
     display: grid;
+    position: relative;
     grid-template-rows: 1fr max-content;
     gap: 28px;
     margin: 32px auto;
