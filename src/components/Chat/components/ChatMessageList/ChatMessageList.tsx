@@ -5,7 +5,7 @@ import { Avatar } from "@/components/Avatar";
 
 import { ChatMessageListItem } from "../ChatMessageListItem";
 
-import { ChatMessageListStyled, InfoText, Wrapper } from "./ChatMessageList.styled";
+import { ChatMessageListStyled, InfoText, MessageGroupWrapper } from "./ChatMessageList.styled";
 import { ChatMessageListProps } from "./ChatMessageList.types";
 
 export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
@@ -31,14 +31,14 @@ export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
     return data.messages.length ? (
         <ChatMessageListStyled ref={messagesListRef}>
             {data.messages.map(({ id, body, senderName }, index, messages) => {
-                const isLast = index === messages.length - 1;
                 const isLastInGroup = messages[index + 1]?.senderName !== senderName;
+                const isUser = senderName === userName;
 
                 return (
-                    <Wrapper key={id} isUser={senderName === userName}>
+                    <MessageGroupWrapper key={id} isUser={isUser}>
                         <ChatMessageListItem body={body} />
-                        {isLastInGroup && !isLast && <Avatar name={senderName} />}
-                    </Wrapper>
+                        {isLastInGroup && !isUser && <Avatar name={senderName} />}
+                    </MessageGroupWrapper>
                 );
             })}
         </ChatMessageListStyled>

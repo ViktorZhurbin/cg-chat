@@ -4,11 +4,11 @@ import { AvatarStyled } from "@/components/Avatar";
 
 import { ChatMessageListItemStyled } from "../ChatMessageListItem";
 
-interface WrapperProps {
+interface MessageGroupWrapperProps {
     isUser: boolean;
 }
 
-export const Wrapper = styled.div<WrapperProps>`
+export const MessageGroupWrapper = styled.div<MessageGroupWrapperProps>`
     display: grid;
     gap: 5px;
     justify-content: end;
@@ -33,8 +33,10 @@ export const Wrapper = styled.div<WrapperProps>`
 `;
 
 export const ChatMessageListStyled = styled.div`
+    flex: 1;
     display: grid;
     gap: 8px;
+    align-content: start;
     overflow-y: auto;
     overflow-x: hidden;
     overscroll-behavior-y: contain;
