@@ -1,4 +1,4 @@
-import { gql, useMutation } from "@apollo/client";
+import { gql, MutationHookOptions, useMutation } from "@apollo/client";
 
 import { SendMessagePayload, Message } from "../../types/Message";
 
@@ -14,5 +14,8 @@ export const SEND_MESSAGE = gql`
     }
 `;
 
-export const useSendMessage = () =>
-    useMutation<Message, SendMessagePayload>(SEND_MESSAGE, { refetchQueries: [GET_MESSAGES] });
+export const useSendMessage = (options?: MutationHookOptions<Message, SendMessagePayload>) =>
+    useMutation<Message, SendMessagePayload>(SEND_MESSAGE, {
+        refetchQueries: [GET_MESSAGES],
+        ...options,
+    });
