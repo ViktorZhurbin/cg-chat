@@ -1,0 +1,45 @@
+name: code-check
+
+on:
+    pull_request:
+        paths:
+            - "src/**/*.tsx?"
+            - "src/**/*.json"
+    push:
+        branches:
+            - "master"
+    workflow_dispatch:
+
+jobs:
+    code-check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Cache node_modules
+              uses: actions/cache@v2
+              id: yarn-cache
+              with:
+                  path: "**/node_modules"
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Install packages
+              if: steps.yarn-cache.outputs.cache-hit != 'true'
+              run: yarn
+
+            - name: Typecheck
+              run: yarn typecheck
+
+            - name: Cache eslint
+              uses: actions/cache@v2
+              id: eslint-cache
+              with:
+                  path: "./.eslintcache"
+                  key: ${{ runner.os }}-eslint-${{ github.sha }}
+                  restore-keys: |
+                      ${{ runner.os }}-eslint-
+
+            - name: Lint
+              if: steps.eslint-cache.outputs.cache-hit != 'true'
+              run: yarn lint
