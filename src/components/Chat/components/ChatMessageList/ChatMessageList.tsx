@@ -3,14 +3,14 @@ import { Avatar } from "../../../Avatar";
 
 import { ChatMessageListItem } from "../ChatMessageListItem";
 
-import { ChatMessageListStyled, Wrapper } from "./ChatMessageList.styled";
+import { ChatMessageListStyled, LoadingStyled, Wrapper } from "./ChatMessageList.styled";
 import { ChatMessageListProps } from "./ChatMessageList.types";
 
 export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
     const { loading, error, data } = useMessages();
 
     if (loading) {
-        return <p>Loading...</p>;
+        return <LoadingStyled>Loading...</LoadingStyled>;
     }
 
     if (!data || error) {

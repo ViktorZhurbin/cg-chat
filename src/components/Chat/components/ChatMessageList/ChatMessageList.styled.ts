@@ -42,3 +42,7 @@ export const ChatMessageListStyled = styled.div`
         display: none;
     }
 `;
+
+export const LoadingStyled = styled.p`
+    margin: auto;
+`;
