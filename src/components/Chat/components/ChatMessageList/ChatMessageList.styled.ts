@@ -45,4 +45,5 @@ export const ChatMessageListStyled = styled.div`
 
 export const LoadingStyled = styled.p`
     margin: auto;
+    color: var(--color-grey);
 `;
