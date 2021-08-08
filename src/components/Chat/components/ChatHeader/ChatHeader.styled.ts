@@ -21,7 +21,7 @@ export const NameStyled = styled.span`
     margin-left: 10px;
 `;
 
-export const CloseStyled = styled.div`
+export const CloseIcon = styled.div`
     --size: 28px;
 
     position: relative;
