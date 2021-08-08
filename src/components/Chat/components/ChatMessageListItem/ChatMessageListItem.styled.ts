@@ -6,7 +6,7 @@ export const ChatMessageListItemStyled = styled.p`
     border-radius: 8px;
     font-size: 1rem;
     line-height: 1.25rem;
-    justify-self: end;
+    height: fit-content;
     color: var(--color-white);
     background-color: var(--color-bg-black);
 `;
