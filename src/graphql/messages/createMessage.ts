@@ -1,6 +1,6 @@
 import { gql, MutationHookOptions, useMutation } from "@apollo/client";
 
-import { CreateMessagePayload, Message } from "@/types/Message";
+import { Message } from "@/types/Message";
 
 import { GET_MESSAGES } from "./getMessages";
 
@@ -13,6 +13,8 @@ export const CREATE_MESSAGE = gql`
         }
     }
 `;
+
+type CreateMessagePayload = Pick<Message, "body" | "senderName">;
 
 export const useCreateMessage = (options?: MutationHookOptions<Message, CreateMessagePayload>) =>
     useMutation<Message, CreateMessagePayload>(CREATE_MESSAGE, {
