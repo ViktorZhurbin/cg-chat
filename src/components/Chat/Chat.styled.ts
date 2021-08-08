@@ -19,8 +19,8 @@ export const ChatStyled = styled.div`
 
     display: flex;
     flex-direction: column;
-    max-width: 360px;
-    max-height: 90vh;
+    width: 360px;
+    height: 90vh;
     border-radius: 20px;
     box-shadow: 2px 2px 10px 0px slategrey;
     overflow-y: auto;
