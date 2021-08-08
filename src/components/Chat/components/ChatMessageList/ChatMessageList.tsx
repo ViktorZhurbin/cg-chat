@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useGetMessages } from "../../../../graphql/queries";
 import { Avatar } from "../../../Avatar";
 
@@ -7,18 +7,17 @@ import { ChatMessageListItem } from "../ChatMessageListItem";
 import { ChatMessageListStyled, InfoText, Wrapper } from "./ChatMessageList.styled";
 import { ChatMessageListProps } from "./ChatMessageList.types";
 
-export const CHAT_MESSAGES_LIST_ID = "chatMessagesList";
-
 export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
     const { loading, error, data } = useGetMessages();
+    const messagesListRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const messagesList = document.getElementById(CHAT_MESSAGES_LIST_ID);
+        if (messagesListRef?.current) {
+            const element = messagesListRef?.current;
 
-        if (messagesList) {
-            messagesList.scrollTop = messagesList.scrollHeight;
+            element.scrollTop = element.scrollHeight;
         }
-    }, [data?.messages.length]);
+    }, [data?.messages?.length]);
 
     if (loading) {
         return <InfoText>Loading...</InfoText>;
@@ -28,8 +27,8 @@ export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
         return <InfoText>Could not get the messages :(</InfoText>;
     }
 
-    return (
-        <ChatMessageListStyled id={CHAT_MESSAGES_LIST_ID}>
+    return data.messages.length ? (
+        <ChatMessageListStyled ref={messagesListRef}>
             {data.messages.map(({ id, body, senderName }, index, messages) => {
                 const isLast = index === messages.length - 1;
                 const isLastInGroup = messages[index + 1]?.senderName !== senderName;
@@ -42,5 +41,7 @@ export const ChatMessageList = ({ userName }: ChatMessageListProps) => {
                 );
             })}
         </ChatMessageListStyled>
+    ) : (
+        <InfoText>There are no messages yet</InfoText>
     );
 };
