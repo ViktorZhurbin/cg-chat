@@ -12,6 +12,7 @@ module.exports = {
                 "babel-plugin-styled-components",
                 {
                     ssr: false,
+                    fileName: false,
                 },
             ],
         ],
