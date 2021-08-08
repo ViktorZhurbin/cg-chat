@@ -43,7 +43,7 @@ export const ChatMessageListStyled = styled.div`
     }
 `;
 
-export const LoadingStyled = styled.p`
+export const InfoText = styled.p`
     margin: auto;
     color: var(--color-grey);
 `;
