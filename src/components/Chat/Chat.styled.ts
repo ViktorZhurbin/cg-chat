@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ChatIcon } from "../ChatIcon";
+
+import { ChatIcon } from "@/components/ChatIcon";
 
 import { ChatHeaderStyled } from "./components/ChatHeader";
 import { ChatInputStyled } from "./components/ChatInput";

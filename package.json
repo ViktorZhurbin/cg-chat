@@ -4,6 +4,7 @@
     "private": true,
     "dependencies": {
         "@apollo/client": "^3.4.5",
+        "@craco/craco": "^6.2.0",
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
@@ -12,6 +13,7 @@
         "@types/react": "^17.0.0",
         "@types/react-dom": "^17.0.0",
         "@types/styled-components": "^5.1.12",
+        "babel-plugin-styled-components": "^1.13.2",
         "eslint-config-prettier": "^8.3.0",
         "graphql": "^15.5.1",
         "prettier": "^2.3.2",
@@ -26,10 +28,10 @@
         "styled-components": "^5"
     },
     "scripts": {
-        "start": "BROWSER=none TSC_COMPILE_ON_ERROR=true react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
+        "start": "BROWSER=none craco start",
+        "build": "craco build",
+        "test": "craco test",
+        "eject": "craco eject",
         "lint": "eslint src --ext .ts,.tsx"
     },
     "simple-git-hooks": {
