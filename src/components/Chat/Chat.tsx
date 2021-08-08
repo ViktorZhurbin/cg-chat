@@ -4,9 +4,9 @@ import { MessageList } from "../MessageList";
 
 import { ChatStyled } from "./Chat.styled";
 
-export const Chat = () => {
-    const userName = "Viktor";
+const userName = "Viktor";
 
+export const Chat = () => {
     return (
         <ChatStyled>
             <ChatHeader />
