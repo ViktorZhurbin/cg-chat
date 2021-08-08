@@ -1,4 +1,4 @@
-import { Avatar } from "../Avatar";
+import { Avatar } from "../../../Avatar";
 
 import { ChatHeaderStyled, CloseStyled, NameStyled, UserWrapper } from "./ChatHeader.styled";
 

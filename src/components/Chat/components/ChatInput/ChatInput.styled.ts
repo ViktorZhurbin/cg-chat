@@ -5,6 +5,5 @@ export const ChatInputStyled = styled.input`
     line-height: 1.25rem;
     border: none;
     outline: none;
-    padding: 8px;
     width: 100%;
 `;

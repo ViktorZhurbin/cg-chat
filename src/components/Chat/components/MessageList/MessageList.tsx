@@ -1,4 +1,4 @@
-import { useMessages } from "../../graphql/queries";
+import { useMessages } from "../../../../graphql/queries";
 
 import { MessageListItem } from "../MessageListItem";
 import { MessageListStyled } from "./MessageList.styled";

@@ -1,6 +1,6 @@
-import { ChatHeader } from "../ChatHeader";
-import { ChatInput } from "../ChatInput";
-import { MessageList } from "../MessageList";
+import { ChatHeader } from "./components/ChatHeader";
+import { ChatInput } from "./components/ChatInput";
+import { MessageList } from "./components/MessageList";
 
 import { ChatStyled } from "./Chat.styled";
 
