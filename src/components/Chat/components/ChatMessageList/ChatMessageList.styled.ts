@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
-import { AvatarStyled } from "../../../Avatar";
+
+import { AvatarStyled } from "@/components/Avatar";
+
 import { ChatMessageListItemStyled } from "../ChatMessageListItem";
 
 interface WrapperProps {

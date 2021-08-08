@@ -1,4 +1,4 @@
-import { Avatar } from "../../../Avatar";
+import { Avatar } from "@/components/Avatar";
 
 import { ChatHeaderStyled, CloseIcon, NameStyled, UserWrapper } from "./ChatHeader.styled";
 import { ChatHeaderProps } from "./ChatHeader.types";

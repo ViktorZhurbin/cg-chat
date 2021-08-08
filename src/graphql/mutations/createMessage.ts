@@ -1,8 +1,7 @@
 import { gql, MutationHookOptions, useMutation } from "@apollo/client";
 
-import { CreateMessagePayload, Message } from "../../types/Message";
-
-import { GET_MESSAGES } from "../queries";
+import { CreateMessagePayload, Message } from "@/types/Message";
+import { GET_MESSAGES } from "@/graphql/queries";
 
 export const CREATE_MESSAGE = gql`
     mutation sendMessage($body: String, $senderName: String) {

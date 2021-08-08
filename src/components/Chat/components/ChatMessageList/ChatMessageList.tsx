@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
-import { useGetMessages } from "../../../../graphql/queries";
-import { Avatar } from "../../../Avatar";
+
+import { useGetMessages } from "@/graphql/queries";
+import { Avatar } from "@/components/Avatar";
 
 import { ChatMessageListItem } from "../ChatMessageListItem";
 
