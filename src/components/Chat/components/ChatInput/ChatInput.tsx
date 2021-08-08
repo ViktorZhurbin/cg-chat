@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-import { useCreateMessage } from "@/graphql/mutations";
+import { useCreateMessage } from "@/graphql/messages";
 
 import {
     ChatInputStyled,
