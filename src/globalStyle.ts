@@ -14,8 +14,8 @@ export const GlobalStyle = createGlobalStyle`
 
         --color-white: #fff;
         --color-charcoal: #424e58;
-        --color-blue: blue;
-        --color-bg-grey: #f3f1f1;
+        --color-blue: #45a1f8;
+        --color-bg-grey: #eef3f4;
         --color-bg-black: #2a2a2a;
     }
 `;
