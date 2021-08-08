@@ -5,10 +5,10 @@ export const ChatMessageListStyled = styled.div`
     gap: 8px;
     overflow-y: auto;
     overflow-x: hidden;
-    scrollbar-width: none;
     overscroll-behavior-y: contain;
+    scrollbar-width: none;
 
-    &::-webkit-scrollbar {
+    ::-webkit-scrollbar {
         display: none;
     }
 `;
