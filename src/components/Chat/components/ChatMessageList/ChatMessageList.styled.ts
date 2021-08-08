@@ -1,4 +1,34 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { AvatarStyled } from "../../../Avatar";
+import { ChatMessageListItemStyled } from "../ChatMessageListItem";
+
+interface WrapperProps {
+    isUser: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
+    display: grid;
+    gap: 5px;
+    justify-content: end;
+
+    ${AvatarStyled} {
+        --size: 12px;
+
+        font-size: 0.5rem;
+        justify-self: end;
+    }
+
+    ${({ isUser }) =>
+        isUser &&
+        css`
+            justify-content: start;
+
+            ${ChatMessageListItemStyled} {
+                color: var(--color-charcoal);
+                background-color: var(--color-bg-grey);
+            }
+        `}
+`;
 
 export const ChatMessageListStyled = styled.div`
     display: grid;
