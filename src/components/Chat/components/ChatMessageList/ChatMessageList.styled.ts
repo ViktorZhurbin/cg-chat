@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { AvatarStyled } from "../../../Avatar";
-import { ChatMessageListItemStyled } from "../ChatMessageListItem/ChatMessageListItem.styled";
+import { ChatMessageListItemStyled } from "../ChatMessageListItem";
 
 interface WrapperProps {
     isUser: boolean;
@@ -9,6 +9,7 @@ interface WrapperProps {
 export const Wrapper = styled.div<WrapperProps>`
     display: grid;
     gap: 5px;
+    justify-content: end;
 
     ${AvatarStyled} {
         --size: 12px;
@@ -20,14 +21,11 @@ export const Wrapper = styled.div<WrapperProps>`
     ${({ isUser }) =>
         isUser &&
         css`
+            justify-content: start;
+
             ${ChatMessageListItemStyled} {
-                justify-self: start;
                 color: var(--color-charcoal);
                 background-color: var(--color-bg-grey);
-            }
-
-            ${AvatarStyled} {
-                justify-self: start;
             }
         `}
 `;
