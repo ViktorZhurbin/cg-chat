@@ -3,7 +3,7 @@ import { ChatIcon } from "../ChatIcon";
 
 import { ChatHeaderStyled } from "./components/ChatHeader";
 import { ChatInputStyled } from "./components/ChatInput";
-import { MessageListStyled } from "./components/MessageList";
+import { ChatMessageListStyled } from "./components/ChatMessageList";
 
 export const Wrapper = styled.div`
     --offset: 20px;
@@ -29,7 +29,7 @@ export const ChatStyled = styled.div`
         padding: var(--padding);
     }
 
-    ${MessageListStyled} {
+    ${ChatMessageListStyled} {
         padding: var(--padding);
     }
 

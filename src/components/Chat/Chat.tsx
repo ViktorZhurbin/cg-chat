@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { ChatHeader } from "./components/ChatHeader";
 import { ChatInput } from "./components/ChatInput";
-import { MessageList } from "./components/MessageList";
+import { ChatMessageList } from "./components/ChatMessageList";
 
 import { ChatIconStyled, ChatStyled, Wrapper } from "./Chat.styled";
 
@@ -19,7 +19,7 @@ export const Chat = () => {
             {isOpen ? (
                 <ChatStyled>
                     <ChatHeader onClose={handleClose} />
-                    <MessageList userName={userName} />
+                    <ChatMessageList userName={userName} />
                     <ChatInput userName={userName} />
                 </ChatStyled>
             ) : (

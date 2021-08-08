@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MessageListStyled = styled.div`
+export const ChatMessageListStyled = styled.div`
     display: grid;
     gap: 8px;
     overflow-y: auto;
