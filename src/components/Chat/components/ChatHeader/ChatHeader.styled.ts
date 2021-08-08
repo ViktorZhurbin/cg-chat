@@ -41,7 +41,7 @@ export const CloseIcon = styled.div`
         left: 50%;
         height: inherit;
         width: 2px;
-        background-color: #828181;
+        background-color: var(--color-grey);
     }
 
     ::before {
